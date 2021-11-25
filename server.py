@@ -14,7 +14,7 @@ def courses():
         print(request, request.headers, request.get_data())
         course1 = {
                 "id":1,
-                "name":"'\"><script>alert(1)</script>TestCourse",
+                "name":"TestCourse",
         }
         courses = [course1]
         return jsonify(courses)
@@ -31,12 +31,12 @@ def modules(course):
 @app.route("/api/v1/courses/<course>/quizzes")
 def quizzes(course):
         print(request, request.headers, request.get_data())
-        return jsonify([{"id":1, "title":"testQuizz1", "description":"test desc 1 <script>alert(1)</script>", "html_url":"https://test"},{"id":2,"title":"testQuizz2","description":"testDesc2 <script>alert(1)</script>", "html_url":"https://test"}])
+        return jsonify([{"id":1, "title":"testQuizz1", "description":"test desc 1", "html_url":"https://test"},{"id":2,"title":"testQuizz2","description":"testDesc2", "html_url":"https://test"}])
 
 @app.route("/api/v1/courses/1/quizzes/<quizz>")
 def quizz(quizz):
         print(request, request.headers, request.get_data())
-        return jsonify({"id":quizz, "title":"testQuizz1", "description":"test desc 1 <script>alert(1)</script>", "html_url":"https://test"})
+        return jsonify({"id":quizz, "title":"testQuizz1", "description":"test desc 1", "html_url":"https://test"})
 
 
 @app.route("/api/v1/courses/1/quizzes/<quizz>/questions")
